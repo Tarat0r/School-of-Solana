@@ -9,7 +9,7 @@ pub mod questions {
         /// b) Proof-of-Stake
         /// c) Proof-of-History (PoH)
         /// d) Sealevel
-        'x'
+        'c'
     }
     pub fn question_2() -> char {
         /// What happens if the current leader appears to be malicious or faulty?
@@ -18,7 +18,7 @@ pub mod questions {
         /// b) The network moves on to the next validator in line.
         /// c) The protocol halts until the leader returns.
         /// d) PoH counters are reset.
-        'x'
+        'b'
     }
     pub fn question_3() -> char {
         /// Which statement best describes the nature of PoH in relation to its production and verification?
@@ -27,7 +27,7 @@ pub mod questions {
         /// b) PoH is difficult to produce and difficult to verify.
         /// c) PoH is easy to produce and easy to verify.
         /// d) PoH is difficult to produce but easy to verify.
-        'x'
+        'd'
     }
     pub fn question_4() -> char {
         /// Which of the following is NOT a pipeline stage of the TPU?
@@ -36,7 +36,7 @@ pub mod questions {
         /// b) Encryption of data using the GPU.
         /// c) Change of the state using CPU (banking).
         /// d) Write to the disk in kernel space and send out via network card (I/O).
-        'x'
+        'b'
     }
     pub fn question_5() -> char {
         /// In Turbine's data propagation system, what determines which nodes receive priority for message forwarding?
@@ -45,7 +45,7 @@ pub mod questions {
         /// b) Node`s proximity to the current leader.
         /// c) Node`s computational power.
         /// d) Stake-weighted selection algorithm.
-        'x'
+        'd'
     }
     pub fn question_6() -> char {
         /// How are the nodes in the network organized in the Turbine protocol?
@@ -54,7 +54,7 @@ pub mod questions {
         /// b) Into shreds.
         /// c) Into neighborhoods.
         /// d) Into clusters.
-        'x'
+        'c'
     }
     pub fn question_7() -> char {
         /// What does Gulf Stream serve as in Solana?
@@ -63,7 +63,7 @@ pub mod questions {
         /// b) A memory pool solution for storing processed transactions.
         /// c) A protocol for communication overhead reduction.
         /// d) A protocol to speed up consensus decision.
-        'x'
+        'a'
     }
     pub fn question_8() -> char {
         /// Which statement about PoH is correct?
@@ -72,7 +72,7 @@ pub mod questions {
         /// b) PoH replaces communication with local computation.
         /// c) PoH is a Sybil resistance algorithm.
         /// d) The evaluation phase of PoH is very fast because it utilizes thousands of GPU cores.
-        'x'
+        'b'
     }
     pub fn question_9() -> char {
         /// Why can Solana execute transactions in parallel?
@@ -81,7 +81,7 @@ pub mod questions {
         /// b) It describes all the states required to read and write to.
         /// c) It uses proof of stake consensus.
         /// d) It splits each transaction into micro-transactions that can run independently.
-        'x'
+        'b'
     }
     pub fn question_10() -> char {
         /// How does Cloudbreak handle data storage?
@@ -90,7 +90,7 @@ pub mod questions {
         /// b) It makes use of memory-mapped files.
         /// c) It prioritizes CPU storage over disk storage.
         /// d) It employs traditional databases for optimized reading and writing.
-        'x'
+        'b'
     }
     pub fn question_11() -> char {
         /// What is Sealevel in Solana?
@@ -99,7 +99,7 @@ pub mod questions {
         /// b) A protocol for network time synchronization.
         /// c) A framework for Solana program development.
         /// d) A system for managing validator stakes.
-        'x'
+        'a'
     }
     pub fn question_12() -> char {
         /// What does Turbine aim to reduce?
@@ -108,7 +108,7 @@ pub mod questions {
         /// b) Time needed for block propagation.
         /// c) Time needed for consensus voting.
         /// d) Time needed for PoH validation.
-        'x'
+        'b'
     }
     pub fn question_13() -> char {
         /// What is the primary role of the mempool in traditional blockchains?
@@ -117,7 +117,7 @@ pub mod questions {
         /// b) To reserve memory for block processing.
         /// c) To store transactions that have been added to the blockchain.
         /// d) To store transactions that are being broadcasted but have not yet been processed.
-        'x'
+        'd'
     }
     pub fn question_14() -> char {
         /// How many transactions can Solana's mempool hold?
@@ -126,7 +126,7 @@ pub mod questions {
         /// b) Up to 50,000 transactions.
         /// c) Up to 100,000 transactions.
         /// d) Unlimited transactions until memory is full.
-        'x'
+        'a'
     }
     pub fn question_15() -> char {
         /// Which of these statements about transaction processing in parallel on Solana is true?
@@ -135,7 +135,7 @@ pub mod questions {
         /// b) Two transactions processed in parallel can write to the same account.
         /// c) Two transactions can be processed in parallel ONLY if the accounts they read from do not overlap and the accounts they write to do not overlap.
         /// d) Any two transactions can be processed in parallel.
-        'x'
+        'a'
     }
 }
 
