@@ -14,7 +14,10 @@ mod calculator_tests {
         let new_x_in: i64 = 8;
         let new_y_in: i64 = 57;
 
-        assert_eq!(calculator.addition(new_x_in, new_y_in), new_x_in.checked_add(new_y_in));
+        assert_eq!(
+            calculator.addition(new_x_in, new_y_in),
+            new_x_in.checked_add(new_y_in)
+        );
     }
 
     #[test]
@@ -28,7 +31,10 @@ mod calculator_tests {
         let new_x_in: i64 = 13;
         let new_y_in: i64 = 21;
 
-        assert_eq!(calculator.subtraction(new_x_in, new_y_in), new_x_in.checked_sub(new_y_in));
+        assert_eq!(
+            calculator.subtraction(new_x_in, new_y_in),
+            new_x_in.checked_sub(new_y_in)
+        );
     }
 
     #[test]
@@ -37,12 +43,18 @@ mod calculator_tests {
         let y_in: i64 = 5;
         let mut calculator = Calculator::new();
 
-        assert_eq!(calculator.multiplication(x_in, y_in), x_in.checked_mul(y_in));
+        assert_eq!(
+            calculator.multiplication(x_in, y_in),
+            x_in.checked_mul(y_in)
+        );
 
         let new_x_in: i64 = 2;
         let new_y_in: i64 = 473;
 
-        assert_eq!(calculator.multiplication(new_x_in, new_y_in), new_x_in.checked_mul(new_y_in));
+        assert_eq!(
+            calculator.multiplication(new_x_in, new_y_in),
+            new_x_in.checked_mul(new_y_in)
+        );
     }
 
     #[test]
@@ -82,7 +94,10 @@ mod calculator_tests {
             let mut calculator = Calculator::new();
             assert_eq!(calculator.addition(x_in, y_in), x_in.checked_add(y_in));
             assert_eq!(calculator.subtraction(x_in, y_in), x_in.checked_sub(y_in));
-            assert_eq!(calculator.multiplication(x_in, y_in), x_in.checked_mul(y_in));
+            assert_eq!(
+                calculator.multiplication(x_in, y_in),
+                x_in.checked_mul(y_in)
+            );
         }
     }
 
@@ -113,7 +128,10 @@ mod calculator_tests {
         // Test overflow cases
         assert_eq!(OperationType::Addition.perform(i64::MAX, 1), None);
         assert_eq!(OperationType::Subtraction.perform(i64::MIN, 1), None);
-        assert_eq!(OperationType::Multiplication.perform(i64::MAX / 2 + 1, 2), None);
+        assert_eq!(
+            OperationType::Multiplication.perform(i64::MAX / 2 + 1, 2),
+            None
+        );
     }
 
     #[test]
@@ -134,7 +152,7 @@ mod calculator_tests {
     fn show_history_single_operation() {
         let mut calculator = Calculator::new();
         calculator.addition(5, 3);
-        
+
         let history = calculator.show_history();
         assert_eq!(history, "0: 5 + 3 = 8\n");
     }
@@ -145,7 +163,7 @@ mod calculator_tests {
         calculator.addition(10, 5);
         calculator.subtraction(20, 8);
         calculator.multiplication(3, 4);
-        
+
         let history = calculator.show_history();
         let expected = "0: 10 + 5 = 15\n1: 20 - 8 = 12\n2: 3 * 4 = 12\n";
         assert_eq!(history, expected);
@@ -156,11 +174,11 @@ mod calculator_tests {
         let mut calculator = Calculator::new();
         calculator.addition(7, 3);
         calculator.subtraction(15, 5);
-        
+
         // Repeat the first operation (addition)
         let result = calculator.repeat(0);
         assert_eq!(result, Some(10));
-        
+
         // Check that it was added to history
         let history = calculator.show_history();
         let expected = "0: 7 + 3 = 10\n1: 15 - 5 = 10\n2: 7 + 3 = 10\n";
@@ -171,11 +189,11 @@ mod calculator_tests {
     fn repeat_invalid_index() {
         let mut calculator = Calculator::new();
         calculator.addition(5, 2);
-        
+
         // Try to repeat operation at index 5 (doesn't exist)
         let result = calculator.repeat(5);
         assert_eq!(result, None);
-        
+
         // History should remain unchanged
         let history = calculator.show_history();
         assert_eq!(history, "0: 5 + 2 = 7\n");
@@ -184,11 +202,11 @@ mod calculator_tests {
     #[test]
     fn repeat_from_empty_history() {
         let mut calculator = Calculator::new();
-        
+
         // Try to repeat when no operations exist
         let result = calculator.repeat(0);
         assert_eq!(result, None);
-        
+
         // History should still be empty
         assert_eq!(calculator.show_history(), "");
     }
@@ -206,14 +224,14 @@ mod calculator_tests {
         calculator.addition(1, 2);
         calculator.subtraction(10, 5);
         calculator.multiplication(3, 3);
-        
+
         // Verify history exists
         assert!(!calculator.show_history().is_empty());
-        
+
         // Clear history
         calculator.clear_history();
         assert_eq!(calculator.show_history(), "");
-        
+
         // Verify repeat doesn't work after clearing
         assert_eq!(calculator.repeat(0), None);
     }
@@ -221,23 +239,23 @@ mod calculator_tests {
     #[test]
     fn calculator_workflow_integration() {
         let mut calculator = Calculator::new();
-        
+
         // Perform some operations
         calculator.addition(10, 5);
         calculator.multiplication(3, 4);
-        
+
         // Repeat first operation
         calculator.repeat(0);
-        
+
         // Check complete history
         let history = calculator.show_history();
         let expected = "0: 10 + 5 = 15\n1: 3 * 4 = 12\n2: 10 + 5 = 15\n";
         assert_eq!(history, expected);
-        
+
         // Clear and verify
         calculator.clear_history();
         assert_eq!(calculator.show_history(), "");
-        
+
         // Add new operation after clearing
         calculator.subtraction(20, 7);
         assert_eq!(calculator.show_history(), "0: 20 - 7 = 13\n");
