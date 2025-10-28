@@ -14,7 +14,6 @@
 /// Use this as your reference when implementing the TODO instructions!
 /// 
 ///-------------------------------------------------------------------------------
-
 use anchor_lang::prelude::*;
 use crate::state::Vault;
 use crate::events::InitializeVaultEvent;
@@ -40,7 +39,7 @@ pub fn _init_vault(ctx: Context<InitializeVault>, locked: bool) -> Result<()> {
 
   vault.vault_authority = ctx.accounts.vault_authority.key();
   vault.locked = locked;
-
+  
   emit!(InitializeVaultEvent {
     vault: vault.key(),
     vault_authority: vault.vault_authority,
