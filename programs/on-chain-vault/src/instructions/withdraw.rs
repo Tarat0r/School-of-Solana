@@ -37,8 +37,6 @@ pub fn _withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
     require!(vault_info.lamports() >= amount, VaultError::InsufficientBalance);
 
     let authority_key = ctx.accounts.vault_authority.key();
-    // let bump = ctx.bumps.vault;
-    // let signer_seeds: [&[u8]; 3] = [b"vault".as_ref(), authority_key.as_ref(), &[bump]];
 
     **vault_info.try_borrow_mut_lamports()? -= amount;
     **authority_info.try_borrow_mut_lamports()? = authority_info
