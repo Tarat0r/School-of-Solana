@@ -10,7 +10,6 @@
 /// - Use topic in PDA seeds for tweet identification
 /// 
 ///-------------------------------------------------------------------------------
-
 use anchor_lang::prelude::*;
 
 use crate::errors::TwitterError;
@@ -21,15 +20,37 @@ pub fn initialize_tweet(
     topic: String,
     content: String,
 ) -> Result<()> {
-    // TODO: Implement initialize tweet functionality
-    todo!()
+    if content.len() > 500 {
+        return Err(TwitterError::ContentTooLong.into());
+    }
+
+    let tweet = &mut ctx.accounts.tweet;
+    tweet.topic = topic;
+    tweet.tweet_author = ctx.accounts.tweet_authority.key();
+    tweet.content = content;
+    tweet.likes = 0;
+    tweet.dislikes = 0;
+    let bump = ctx.bumps.tweet;
+    ctx.accounts.tweet.bump = bump;
+
+
+    Ok(())
 }
+
 
 #[derive(Accounts)]
 #[instruction(topic: String)]
 pub struct InitializeTweet<'info> {
-    // TODO: Add required account constraints
+    #[account(mut)]
     pub tweet_authority: Signer<'info>,
+    #[account(
+        init,
+        payer = tweet_authority,
+        space = 8 + Tweet::INIT_SPACE,
+        seeds = [topic.as_bytes(), b"TWEET_SEED", tweet_authority.key().as_ref()],
+
+        bump
+    )]
     pub tweet: Account<'info, Tweet>,
     pub system_program: Program<'info, System>,
 }
