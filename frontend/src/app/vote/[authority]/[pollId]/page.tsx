@@ -9,7 +9,7 @@ import BN from "bn.js";
 import { PublicKey, SystemProgram } from "@solana/web3.js";
 import { Buffer } from "buffer";
 import { getProgram, PROGRAM_ID, u64Le, u16Le } from "../../../lib/anchor";
-import { requireAccount } from "@/app/lib/errors";
+import { requireAccount } from "../../../lib/errors";
 
 type UIOption = { index: number; label: string; plus: number; minus: number; pda: PublicKey };
 
