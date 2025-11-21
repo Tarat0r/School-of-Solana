@@ -37,7 +37,7 @@ pub mod questions {
         /// b) The config account is not reloaded after a CPI.
         /// c) Anyone can update the config.
         /// d) The update config instruction is safe and does not contain any vulnerability.
-        'x'
+        'c'
     }
     pub fn question_2() -> char {
         /// How can account reloading vulnerability be prevented?
@@ -46,7 +46,7 @@ pub mod questions {
         /// b) By calling two CPIs in a row.
         /// c) By calling reload() on the accounts modified by the CPI.
         /// d) By ensuring all of the accounts included in the CPI are rent-exempt.
-        'x'
+        'c'
     }
     pub fn question_3() -> char {
         /// Which of the following conditions must be met for the balances of all accounts after a transaction?
@@ -55,7 +55,7 @@ pub mod questions {
         /// b) The sum of the balances before and after the transaction must remain the same.
         /// c) Balances of read-only accounts must increase.
         /// d) Balances must reflect transaction fees deducted.
-        'x'
+        'b'
     }
     pub fn question_4() -> char {
         /// How can you prevent an account from being re-initialized and having its existing data overridden?
@@ -64,7 +64,7 @@ pub mod questions {
         /// b) By increasing the account's balance.
         /// c) By comparing the account's pubkey with another account.
         /// d) By checking if the account signed the transaction.
-        'x'
+        'a'
     }
     pub fn question_5() -> char {
         /// How can you check that the correct program is being invoked before calling a CPI?
@@ -73,7 +73,7 @@ pub mod questions {
         /// b) By ensuring that an authorized account is specified as the signer of the instruction which calls the CPI.
         /// c) By comparing the public key of the passed-in program with the program you expected.
         /// d) By checking the account's discriminator.
-        'x'
+        'c'
     }
     pub fn question_6() -> char {
         /// How can you prevent the duplicate mutable accounts vulnerability?
@@ -82,7 +82,7 @@ pub mod questions {
         /// b) By comparing the public keys of the accounts and throwing an error if they match.
         /// c) By checking if all accounts are initialized.
         /// d) By checking whether both account have the same owner.
-        'x'
+        'b'
     }
     pub fn question_7() -> char {
         /// How does the find_program_address method differ from the create_program_address method?
@@ -91,7 +91,7 @@ pub mod questions {
         /// b) find_program_address derives a PDA without searching for the canonical bump.
         /// c) Both functions work the same, they only differ in name.
         /// d) It automatically stores the derived bump in an account's data field for later reference.
-        'x'
+        'a'
     }
     pub fn question_8() -> char {
         /// Anyone can increase the account balance. Under what circumstances can the account balance be decreased?
@@ -100,7 +100,7 @@ pub mod questions {
         /// b) Only if the data stored in the account is zeroed out.
         /// c) This can be done only to accounts owned by the System Program.
         /// d) Account owner is able to subtract lamports from the account.
-        'x'
+        'c'
     }
     pub fn question_9() -> char {
         /// How can you prevent the same PDA from being used for multiple accounts,
@@ -110,7 +110,7 @@ pub mod questions {
         /// b) By using the same seeds for all accounts.
         /// c) By using user-specific and/or domain-specific seeds to prevent the same PDA from being used across different accounts.
         /// d) By making the account with the original PDA rent-exempt.
-        'x'
+        'c'
     }
     pub fn question_10() -> char {
         /// Which of these things does Anchor's close constraint not do?
@@ -119,7 +119,7 @@ pub mod questions {
         /// b) It creates a new account to replace the closed one.
         /// c) It zeroes out the account data.
         /// d) It sets the account discriminator to CLOSED_ACCOUNT_DISCRIMINATOR.
-        'x'
+        'b'
     }
 }
 
