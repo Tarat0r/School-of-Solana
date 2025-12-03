@@ -1,0 +1,792 @@
+{
+  "address": "5K9LFpBoVfzaw6hjfL4XnuwC88p5xt3UJYX5LTfRrvkE",
+  "metadata": {
+    "name": "d21_voting",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_option",
+      "discriminator": [
+        229,
+        150,
+        102,
+        127,
+        99,
+        5,
+        34,
+        196
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "poll",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  108,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll.authority",
+                "account": "Poll"
+              },
+              {
+                "kind": "account",
+                "path": "poll.poll_id",
+                "account": "Poll"
+              }
+            ]
+          }
+        },
+        {
+          "name": "label_guard",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  112,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  108,
+                  97,
+                  98,
+                  101,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll"
+              },
+              {
+                "kind": "arg",
+                "path": "label_seed"
+              }
+            ]
+          }
+        },
+        {
+          "name": "option_node",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  112,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll"
+              },
+              {
+                "kind": "arg",
+                "path": "index"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "index",
+          "type": "u16"
+        },
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "label_seed",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cast_vote",
+      "discriminator": [
+        20,
+        212,
+        15,
+        189,
+        69,
+        180,
+        69,
+        151
+      ],
+      "accounts": [
+        {
+          "name": "voter_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "poll",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  108,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll.authority",
+                "account": "Poll"
+              },
+              {
+                "kind": "account",
+                "path": "poll.poll_id",
+                "account": "Poll"
+              }
+            ]
+          }
+        },
+        {
+          "name": "option_node",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  112,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll"
+              },
+              {
+                "kind": "arg",
+                "path": "index"
+              }
+            ]
+          }
+        },
+        {
+          "name": "voter",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  111,
+                  116,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll"
+              },
+              {
+                "kind": "account",
+                "path": "voter_authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "receipt",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  99,
+                  101,
+                  105,
+                  112,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll"
+              },
+              {
+                "kind": "arg",
+                "path": "index"
+              },
+              {
+                "kind": "account",
+                "path": "voter_authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "index",
+          "type": "u16"
+        },
+        {
+          "name": "sentiment",
+          "type": "i8"
+        }
+      ]
+    },
+    {
+      "name": "initialize_poll",
+      "discriminator": [
+        193,
+        22,
+        99,
+        197,
+        18,
+        33,
+        115,
+        117
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "poll",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  108,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "authority"
+              },
+              {
+                "kind": "arg",
+                "path": "cfg.poll_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "cfg",
+          "type": {
+            "defined": {
+              "name": "PollConfig"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "LabelGuard",
+      "discriminator": [
+        35,
+        200,
+        232,
+        172,
+        50,
+        110,
+        1,
+        138
+      ]
+    },
+    {
+      "name": "OptionNode",
+      "discriminator": [
+        234,
+        219,
+        25,
+        146,
+        135,
+        166,
+        76,
+        38
+      ]
+    },
+    {
+      "name": "Poll",
+      "discriminator": [
+        110,
+        234,
+        167,
+        188,
+        231,
+        136,
+        153,
+        111
+      ]
+    },
+    {
+      "name": "Receipt",
+      "discriminator": [
+        39,
+        154,
+        73,
+        106,
+        80,
+        102,
+        145,
+        153
+      ]
+    },
+    {
+      "name": "Voter",
+      "discriminator": [
+        241,
+        93,
+        35,
+        191,
+        254,
+        147,
+        17,
+        202
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "OptionAdded",
+      "discriminator": [
+        136,
+        202,
+        18,
+        117,
+        144,
+        187,
+        122,
+        249
+      ]
+    },
+    {
+      "name": "VoteCast",
+      "discriminator": [
+        39,
+        53,
+        195,
+        104,
+        188,
+        17,
+        225,
+        213
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "VotingNotStarted",
+      "msg": "Voting has not started"
+    },
+    {
+      "code": 6001,
+      "name": "VotingClosed",
+      "msg": "Voting is closed"
+    },
+    {
+      "code": 6002,
+      "name": "Unauthorized",
+      "msg": "Unauthorized"
+    },
+    {
+      "code": 6003,
+      "name": "TitleTooLong",
+      "msg": "Title too long"
+    },
+    {
+      "code": 6004,
+      "name": "DescriptionTooLong",
+      "msg": "Description too long"
+    },
+    {
+      "code": 6005,
+      "name": "LabelTooLong",
+      "msg": "Label too long"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidSentiment",
+      "msg": "Invalid sentiment"
+    },
+    {
+      "code": 6007,
+      "name": "OutOfPositiveCredits",
+      "msg": "Out of positive credits"
+    },
+    {
+      "code": 6008,
+      "name": "OutOfNegativeCredits",
+      "msg": "Out of negative credits"
+    },
+    {
+      "code": 6009,
+      "name": "MathOverflow",
+      "msg": "Math overflow"
+    },
+    {
+      "code": 6010,
+      "name": "AlreadyVotedThisOption",
+      "msg": "Already voted on this option"
+    },
+    {
+      "code": 6011,
+      "name": "InsufficientPositivesForNegative",
+      "msg": "Not enough positive votes to cast a negative vote (need P ≥ 2·(M+1))"
+    },
+    {
+      "code": 6012,
+      "name": "InvalidPollId",
+      "msg": "Invalid Poll ID"
+    },
+    {
+      "code": 6013,
+      "name": "PollIdMismatch",
+      "msg": "Poll ID is mismatched"
+    },
+    {
+      "code": 6014,
+      "name": "PlusCreditIsZero",
+      "msg": "Plus Credit is zero"
+    },
+    {
+      "code": 6015,
+      "name": "MinusCreditIsZero",
+      "msg": "Minus Credit is zero"
+    },
+    {
+      "code": 6016,
+      "name": "InvalidTimeWindow",
+      "msg": "Invalid voting time window"
+    },
+    {
+      "code": 6017,
+      "name": "VotingStarted",
+      "msg": "Can't add an option, voting is already started"
+    },
+    {
+      "code": 6018,
+      "name": "LabelEmpty",
+      "msg": "Option label is empty"
+    },
+    {
+      "code": 6019,
+      "name": "LabelAlreadyUsed",
+      "msg": "Option label already exists for this poll"
+    },
+    {
+      "code": 6020,
+      "name": "LabelSeedMismatch",
+      "msg": "Label seed/hash mismatch"
+    },
+    {
+      "code": 6021,
+      "name": "PollMismatch",
+      "msg": "Option dont't belong to this poll"
+    }
+  ],
+  "types": [
+    {
+      "name": "LabelGuard",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll",
+            "type": "pubkey"
+          },
+          {
+            "name": "label_hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "OptionAdded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll",
+            "type": "pubkey"
+          },
+          {
+            "name": "index",
+            "type": "u16"
+          },
+          {
+            "name": "label",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OptionNode",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll",
+            "type": "pubkey"
+          },
+          {
+            "name": "index",
+            "type": "u16"
+          },
+          {
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "name": "plus_votes",
+            "type": "u32"
+          },
+          {
+            "name": "minus_votes",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Poll",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "poll_id",
+            "type": "u64"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "plus_credits",
+            "type": "u8"
+          },
+          {
+            "name": "minus_credits",
+            "type": "u8"
+          },
+          {
+            "name": "start_ts",
+            "type": "i64"
+          },
+          {
+            "name": "end_ts",
+            "type": "i64"
+          },
+          {
+            "name": "options_count",
+            "type": "u16"
+          },
+          {
+            "name": "ended",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PollConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll_id",
+            "type": "u64"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "plus_credits",
+            "type": "u8"
+          },
+          {
+            "name": "minus_credits",
+            "type": "u8"
+          },
+          {
+            "name": "start_ts",
+            "type": "i64"
+          },
+          {
+            "name": "end_ts",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Receipt",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll",
+            "type": "pubkey"
+          },
+          {
+            "name": "voter",
+            "type": "pubkey"
+          },
+          {
+            "name": "option_index",
+            "type": "u16"
+          },
+          {
+            "name": "sentiment",
+            "type": "i8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "VoteCast",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll",
+            "type": "pubkey"
+          },
+          {
+            "name": "voter",
+            "type": "pubkey"
+          },
+          {
+            "name": "option_index",
+            "type": "u16"
+          },
+          {
+            "name": "sentiment",
+            "type": "i8"
+          },
+          {
+            "name": "used_plus",
+            "type": "u8"
+          },
+          {
+            "name": "used_minus",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Voter",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll",
+            "type": "pubkey"
+          },
+          {
+            "name": "voter",
+            "type": "pubkey"
+          },
+          {
+            "name": "used_plus",
+            "type": "u8"
+          },
+          {
+            "name": "used_minus",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
