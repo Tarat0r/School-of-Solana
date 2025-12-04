@@ -16,9 +16,9 @@
     "@solana/wallet-adapter-wallets": "^0.19.37",
     "@solana/web3.js": "^1.98.4",
     "bn.js": "^5.2.2",
-    "next": "16.0.1",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "sonner": "^2.0.7"
   },
   "devDependencies": {
