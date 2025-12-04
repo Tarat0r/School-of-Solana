@@ -2,18 +2,22 @@
 ![School of Solana](https://github.com/Ackee-Blockchain/school-of-solana/blob/master/.banner/banner.png?raw=true)
 
 ## 📚Solana Program
+
 We are about halfway through the course, and you already have some experience with programming on Solana. It is time to create something on your own! You will be building a dApp that will serve as the culmination of everything you have learned so far. Feel free to implement whatever comes to your mind, (as long as it passes the requirements).
 
 **This does not mean that the School of Solana is coming to an end just yet!** There are still several exciting lectures ahead, as well as one security related task.
 
 ### Task details
+
 This task consists of two parts:
+
 1. **Core of your dApp**
     - A deployed Solana program.
 2. **Frontend**
     - A simple frontend to interact with the dApp.
 
 ### Requirements
+
 - An Anchor program deployed on **Devnet** or **Mainnet**.
 - The Anchor program must use a PDA (Program Derived Address).
 - At least one TypeScript **test** for each Anchor program instruction. These tests should cover both **happy** and **unhappy** (intentional error-triggering) scenarios.
@@ -21,33 +25,37 @@ This task consists of two parts:
 - A filled out **PROJECT_DESCRIPTION.md** file.
 
 ### Ideas
+
 We highly recommend starting with something simple. Take time to think through your project and work on it in iterations. Do not try to implement everything at once!
 
 Below is a list of few ideas to get you started:
+
 - **Social app**
-    - Instagram
-    - Giphy
-    - Friendtech
-    - Spotify
+  - Instagram
+  - Giphy
+  - Friendtech
+  - Spotify
 - **Blog**
 - **Voting** ([D21 - Janeček method](https://www.ih21.org/en/guidelines))
 - **DeFi**
-    - Raffles
-    - Escrow
-    - Tipping
-    - Lending ([Save Documentation](https://docs.save.finance/))
-    - Liquid Staking ([Marinade Documentation](https://docs.marinade.finance/))
-    - Data Query with Pyth ([Pyth Documentation](https://docs.pyth.network/price-feeds))
-    - AMM ([Raydium Documentation](https://raydium.gitbook.io/raydium/))
+  - Raffles
+  - Escrow
+  - Tipping
+  - Lending ([Save Documentation](https://docs.save.finance/))
+  - Liquid Staking ([Marinade Documentation](https://docs.marinade.finance/))
+  - Data Query with Pyth ([Pyth Documentation](https://docs.pyth.network/price-feeds))
+  - AMM ([Raydium Documentation](https://raydium.gitbook.io/raydium/))
 - **Gaming**
-    - Browser Game ([Gaming on Solana](https://solanacookbook.com/gaming/nfts-in-games.html#nfts-in-games))
+  - Browser Game ([Gaming on Solana](https://solanacookbook.com/gaming/nfts-in-games.html#nfts-in-games))
 
 ### Deadline
+
 The deadline for this task is **Wednesday, November 19th, at 23:59 UTC**.
 >[!CAUTION]
 >Note that we will not accept submissions after the deadline.
 
 ### Submission
+
 There are two folders, one for the Anchor project, and one for the frontend. Push your changes to the **main** branch of **this** repository.
 
 >[!IMPORTANT]
@@ -57,15 +65,17 @@ There are two folders, one for the Anchor project, and one for the frontend. Pus
 >Your submission repository is public. Feel free to share the link to showcase your work!
 
 ### Evaluation
+
 The evaluation process is based on the **requirements**. If you meet the requirements, you pass the task!
 
 >[!NOTE]
 >The first round of evaluations will be conducted by AI to verify requirements before manual review. AI can make mistakes. If you believe you fulfilled all requirements but weren't graded correctly, please create a support ticket and we will resolve the issue.
 
 >[!CAUTION]
->We expect original work that demonstrates your understanding and creativity. While you may draw inspiration from examples covered in lessons and tasks, **direct copying is not acceptable**. If you choose to build upon an example from the School of Solana materials, you must significantly expand it with additional features, instructions, and functionality to showcase your learning progress. 
+>We expect original work that demonstrates your understanding and creativity. While you may draw inspiration from examples covered in lessons and tasks, **direct copying is not acceptable**. If you choose to build upon an example from the School of Solana materials, you must significantly expand it with additional features, instructions, and functionality to showcase your learning progress.
 
 ### Example Workflow
+
 Let's say you are going to implement the Twitter dApp as the Solana Program. Here's how the steps could look:
 
 **1.** Implement Twitter dApp using the Anchor framework.
@@ -83,6 +93,7 @@ Let's say you are going to implement the Twitter dApp as the Solana Program. Her
 **7.** Submit the Twitter dApp using GitHub Classroom.
 
 ### Useful Links
+
 - [Vercel](https://vercel.com)
 - [Create Solana Dapp](https://github.com/solana-foundation/create-solana-dapp)
 - [Account Macro Constraints](https://docs.rs/anchor-lang/0.31.1/anchor_lang/derive.Accounts.html)
@@ -91,5 +102,6 @@ Let's say you are going to implement the Twitter dApp as the Solana Program. Her
 -----
 
 ### Need help?
+>
 >[!TIP]
 >If you have any questions, feel free to reach out to us on [Discord](https://discord.gg/z3JVuZyFnp).
